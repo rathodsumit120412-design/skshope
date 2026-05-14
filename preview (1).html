@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SKSHOPE | Unalu Mag Online Order</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f6ff;
+      color:#111;
+    }
+
+    header{
+      background: linear-gradient(90deg,#0f9b0f,#1f7a1f,#006400);
+      color:white;
+      padding:18px;
+      text-align:center;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    header h1{
+      font-size:26px;
+      letter-spacing:1px;
+      font-weight:900;
+    }
+
+    header p{
+      margin-top:6px;
+      font-size:13px;
+      opacity:0.95;
+    }
+
+    .container{
+      width:92%;
+      max-width:1150px;
+      margin:auto;
+      padding:25px 0;
+    }
+
+    .banner{
+      background:white;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    .banner img{
+      width:100%;
+      display:block;
+    }
+
+    .product-section{
+      margin-top:25px;
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:22px;
+    }
+
+    @media(max-width:900px){
+      .product-section{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card{
+      background:white;
+      border-radius:18px;
+      padding:22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .card h2{
+      font-size:24px;
+      margin-bottom:8px;
+    }
+
+    .subtext{
+      font-size:14px;
+      opacity:0.8;
+      margin-bottom:15px;
+    }
+
+    .pricebox{
+      background:#f1fff3;
+      border:1px solid #caffd3;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:15px;
+    }
+
+    .price{
+      font-size:30px;
+      font-weight:900;
+      color:#0b7a2b;
+    }
+
+    .old{
+      font-size:14px;
+      opacity:0.6;
+      text-decoration: line-through;
+      margin-left:8px;
+      color:#000;
+    }
+
+    .badge{
+      display:inline-block;
+      margin-top:10px;
+      background:#0b7a2b;
+      color:white;
+      padding:6px 12px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:bold;
+    }
+
+    label{
+      font-weight:bold;
+      font-size:13px;
+      margin-top:10px;
+      display:block;
+    }
+
+    input, select, textarea{
+      width:100%;
+      padding:11px;
+      border:1px solid #ddd;
+      border-radius:12px;
+      outline:none;
+      margin-top:6px;
+      margin-bottom:12px;
+      font-size:14px;
+    }
+
+    textarea{
+      resize:none;
+    }
+
+    .total{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#111;
+      color:white;
+      padding:12px 14px;
+      border-radius:14px;
+      margin-top:8px;
+      margin-bottom:14px;
+      font-size:15px;
+    }
+
+    .btn{
+      width:100%;
+      border:none;
+      padding:14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-size:15px;
+      font-weight:bold;
+      transition:0.2s;
+    }
+
+    .btn-wa{
+      background:#25D366;
+      color:white;
+      margin-bottom:10px;
+    }
+
+    .btn-wa:hover{
+      background:#1fa855;
+    }
+
+    .btn-call{
+      background:#ff2d55;
+      color:white;
+    }
+
+    .btn-call:hover{
+      background:#e11d48;
+    }
+
+    .features{
+      margin-top:15px;
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap:14px;
+    }
+
+    .feature{
+      background:#f9f9ff;
+      border-radius:14px;
+      padding:14px;
+      border:1px solid #eee;
+    }
+
+    .feature h3{
+      font-size:14px;
+      margin-bottom:6px;
+      color:#0b7a2b;
+    }
+
+    .feature p{
+      font-size:13px;
+      opacity:0.85;
+      line-height:1.5;
+    }
+
+    .note{
+      font-size:12px;
+      opacity:0.7;
+      margin-top:12px;
+      line-height:1.5;
+    }
+
+    footer{
+      margin-top:45px;
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:18px;
+      font-size:13px;
+      opacity:0.9;
+    }
+
+    .right-title{
+      font-size:18px;
+      margin-bottom:10px;
+      font-weight:900;
+    }
+
+    .trust{
+      margin-top:12px;
+      padding:14px;
+      background:#fff9e6;
+      border:1px solid #ffe2a8;
+      border-radius:14px;
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .trust b{
+      color:#111;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>SKSHOPE</h1>
+  <p>Premium Unalu Mag (Moong) | Fresh Stock Available</p>
+</header>
+
+<div class="container">
+
+  <!-- Banner Image -->
+  <div class="banner">
+    <img src="moong.png" alt="Unalu Mag SKSHOPE Banner">
+  </div>
+
+  <div class="product-section">
+
+    <!-- Left Info -->
+    <div class="card">
+      <h2>Unalu Mag (Moong)</h2>
+      <p class="subtext">📍 Palitana, Bhavnagar (Gujarat) | Home Delivery Available</p>
+
+      <div class="pricebox">
+        <div>
+          <span class="price">₹100</span>
+          <span class="old">₹120</span>
+        </div>
+        <div class="badge">20% OFF Limited Offer</div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <h3>✅ 100% Natural</h3>
+          <p>No chemicals. Clean and healthy product.</p>
+        </div>
+        <div class="feature">
+          <h3>💪 High Protein</h3>
+          <p>Best for health and nutrition.</p>
+        </div>
+        <div class="feature">
+          <h3>🚚 Fast Delivery</h3>
+          <p>Quick delivery in Palitana & nearby areas.</p>
+        </div>
+        <div class="feature">
+          <h3>📦 Safe Packing</h3>
+          <p>Fresh packing for best quality.</p>
+        </div>
+      </div>
+
+      <p class="note">
+        ⚠️ Note: Order will be confirmed on WhatsApp. Delivery charges depend on location.
+      </p>
+    </div>
+
+    <!-- Right Order Form -->
+    <div class="card">
+      <div class="right-title">📲 Place Your Order</div>
+
+      <label>Select Quantity (KG)</label>
+      <select id="kg" onchange="calculateTotal()">
+        <option value="1">1 KG</option>
+        <option value="2">2 KG</option>
+        <option value="5">5 KG</option>
+        <option value="10">10 KG</option>
+        <option value="20">20 KG</option>
+      </select>
+
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+
+      <label>Mobile Number</label>
+      <input type="tel" id="mobile" placeholder="Enter your mobile number">
+
+      <label>Delivery Address</label>
+      <textarea id="address" rows="3" placeholder="Enter full address"></textarea>
+
+      <div class="total">
+        <span>Total Amount</span>
+        <b id="totalPrice">₹100</b>
+      </div>
+
+      <button class="btn btn-wa" onclick="sendWhatsAppOrder()">
+        ✅ Order on WhatsApp
+      </button>
+
+      <button class="btn btn-call" onclick="callNow()">
+        📞 Call Now
+      </button>
+
+      <div class="trust">
+        <b>Trusted Seller:</b> SKSHOPE <br>
+        <b>Owner:</b> Rathod Sumit Kanjibhai <br>
+        <b>Location:</b> Palitana, Gujarat
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 SKSHOPE | Owned by Rathod Sumit Kanjibhai | Palitana, Gujarat
+</footer>
+
+<script>
+  const pricePerKg = 100;
+
+  function calculateTotal(){
+    let kg = document.getElementById("kg").value;
+    let total = pricePerKg * parseInt(kg);
+    document.getElementById("totalPrice").innerText = "₹" + total;
+  }
+
+  function sendWhatsAppOrder(){
+    let kg = document.getElementById("kg").value;
+    let name = document.getElementById("name").value;
+    let mobile = document.getElementById("mobile").value;
+    let address = document.getElementById("address").value;
+
+    if(name.trim() === "" || mobile.trim() === "" || address.trim() === ""){
+      alert("Please fill Name, Mobile and Address!");
+      return;
+    }
+
+    let total = pricePerKg * parseInt(kg);
+
+    let message =
+      "🛒 *SKSHOPE - Unalu Mag Order*%0A%0A" +
+      "👤 Name: " + name + "%0A" +
+      "📞 Mobile: " + mobile + "%0A" +
+      "📦 Product: Unalu Mag (Moong)%0A" +
+      "⚖️ Quantity: " + kg + " KG%0A" +
+      "💰 Price: ₹" + pricePerKg + " per KG%0A" +
+      "🧾 Total: ₹" + total + "%0A%0A" +
+      "🏠 Address: " + address + "%0A%0A" +
+      "✅ Please confirm my order.";
+
+    let whatsappNumber = "917861067939";
+    let url = "https://wa.me/" + whatsappNumber + "?text=" + message;
+
+    window.open(url, "_blank");
+  }
+
+  function callNow(){
+    window.location.href = "tel:7861067939";
+  }
+
+  calculateTotal();
+</script>
+
+</body>
+</html>
